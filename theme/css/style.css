@@ -1180,7 +1180,12 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
 
 .mini-pricing-header {
   text-align: center;
-  font-size: 15px;
+  font-size: 10px;
+}
+
+.mini-pricing-head {
+  margin-bottom: 2px;
+  margin-left: 20px;
 }
 
 .slide-title-box {
