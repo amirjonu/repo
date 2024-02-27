@@ -1173,6 +1173,16 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
   width: 100%;
 }
 
+.mini-pricing {
+  list-style-type: none;
+  font-size: 10px;
+}
+
+.mini-pricing-header {
+  text-align: center;
+  font-size: 15px;
+}
+
 .slide-title-box {
   font-size: 16px;
   line-height: 39px;
