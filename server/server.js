@@ -30,7 +30,7 @@ app.use (
 
 
 
-app.post('/create-checkout-session', async (req, res) => {
+app.post('http://localhost:3000/create-checkout-session', async (req, res) => {
     try{
         const session = await stripe.checkout.sessions.create(
             {

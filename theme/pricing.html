@@ -5,13 +5,6 @@
  // GITHUB: https://github.com/themefisher/
 -->
 
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
-
 <!-- 
 THEME: Constra - Construction Html5 Template
 VERSION: 1.0.0
@@ -207,7 +200,7 @@ FACEBOOK: https://www.facebook.com/themefisher
             </ul>
           </div><!-- Features end -->
           <div class="plan-action">
-            <a href="#" class="btn btn-dark">Order Now</a>
+           Order Now
           </div>
         </div><!-- Plan 1 end -->
       </div><!-- Col end -->
@@ -228,7 +221,7 @@ FACEBOOK: https://www.facebook.com/themefisher
             </ul>
           </div><!-- Features end -->
           <div class="plan-action">
-            <a href="#" class="btn btn-primary">Order Now</a>
+            Order Now
           </div>
         </div><!-- Plan 2 end -->
       </div><!-- Col end -->
@@ -248,9 +241,9 @@ FACEBOOK: https://www.facebook.com/themefisher
               <li>-Large Furniture</li>
             </ul>
           </div><!-- Features end -->
-          <div class="plan-action">
-            <a href="#" class="btn btn-dark">Order Now</a>
-          </div>
+          <button id ="plan-action2" class="plan-action2">
+            Order Now
+          </button>
         </div><!-- Plan 3 end -->
       </div><!-- Col end -->
 
@@ -269,6 +262,11 @@ FACEBOOK: https://www.facebook.com/themefisher
 
   </div><!-- Conatiner end -->
 </section><!-- Main container end -->
+
+
+
+
+
 
 <footer id="footer" class="footer bg-overlay">
     
@@ -329,11 +327,42 @@ FACEBOOK: https://www.facebook.com/themefisher
 
   <!-- Template custom -->
   <script src="js/script.js"></script>
+  <script>
+    const button =document.getElementById('plan-action2');
 
-  <script src="js/script2.js"></script>
+button.addEventListener('click', () =>{
+console.log('ur a monkey')
 
+    fetch('http://localhost:3000/create-checkout-session', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+        {
+            items: [
+              {id: 1, quantity: 1},
+              {id: 2, quantity: 1},
+              {id: 3, quantity: 1},
+            ]
+        }
+      )
+    })
+    .then(res=> {
+      if (res.ok) return res.json()
+      return res.json().then(json => Promise.reject(json))
+    }).then(
+      ({url}) => {
+        window.location= url
+      }
+    )
+    .catch(e => {
+      console.error(e.error)
+    })
+  });
+  </script>
 
-
+ 
 
   </div><!-- Body inner end -->
   </body>
